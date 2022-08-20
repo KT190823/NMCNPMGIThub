@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Homepage</title>
+    <style>
+        table, th, td {
+          border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="w3-bar w3-black">
+        <a href="/homepage" class="w3-bar-item w3-button">Trang chủ</a>
+        <a href="/create" class="w3-bar-item w3-button">Thêm nhân viên</a>
+        <a href="/" class="w3-bar-item w3-button">Đăng xuất</a>
+    </div>
+
+    <table style="width:100%">
+        <tr>
+            <th>Username</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Address</th>
+            <th>Action</th>
+        </tr>
+        <% for(var i=0; i < dataTable.length; i++) { %>
+            <tr>
+              <td><%= dataTable[i].username %></td>
+              <td><%= dataTable[i].firstName %></td>
+              <td><%= dataTable[i].lastName %></td>
+              <td><%= dataTable[i].address %></td>
+
+              <td>
+                <a href="/detail-user?id=<%= dataTable[i].id %>" type="button">Detail</a>
+                <a href="/edit-user?id=<%= dataTable[i].id %>" type="button">Edit</a>
+                <a href="/delete-user?id=<%= dataTable[i].id %>" type="button">Delete</a>
+                <a href="/salary-user?id=<%= dataTable[i].id %>" type="button">Salary</a>
+              </td>
+            </tr>
+         <% } %>
+      </table>
+</body>
+</html>
